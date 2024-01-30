@@ -1,0 +1,96 @@
+<!-- Plik HTML (invoice_form.html) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Faktury</title>
+</head>
+<body>
+
+    <h1>Formularz Faktury</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="invoice_image">Zdjęcie faktury:</label>
+        <input type="file" id="invoice_image" name="invoice_image" accept="image/*" required>
+        <br>
+
+        <label for="company_name">Nazwa firmy:</label>
+        <input type="text" id="company_name" name="company_name" required>
+        <br>
+
+        <label for="company_address">Adres firmy:</label>
+        <textarea id="company_address" name="company_address" required></textarea>
+        <br>
+
+        <label for="company_phone">Telefon firmy:</label>
+        <input type="tel" id="company_phone" name="company_phone" required>
+        <br>
+
+        <label for="customer_name">Nazwa klienta:</label>
+        <input type="text" id="customer_name" name="customer_name" required>
+        <br>
+
+        <label for="customer_address">Adres klienta:</label>
+        <textarea id="customer_address" name="customer_address" required></textarea>
+        <br>
+
+        <label for="customer_phone">Telefon klienta:</label>
+        <input type="tel" id="customer_phone" name="customer_phone" required>
+        <br>
+
+        <h2>Produkty</h2>
+        <div id="items">
+            <div class="item">
+                <label for="item_description_1">Opis produktu:</label>
+                <input type="text" id="item_description_1" name="item_description_1" required>
+                <br>
+
+                <label for="item_quantity_1">Ilość:</label>
+                <input type="number" id="item_quantity_1" name="item_quantity_1" required>
+                <br>
+
+                <label for="item_price_1">Cena jednostkowa:</label>
+                <input type="number" id="item_price_1" name="item_price_1" step="0.01" required>
+                <br>
+            </div>
+        </div>
+        <button type="button" onclick="addNewItem()">Dodaj nowy produkt</button>
+        <br>
+
+        <label for="invoice_total">Łączna suma:</label>
+        <input type="text" id="invoice_total" name="invoice_total" readonly>
+        <br>
+
+        <button type="submit">Generuj fakturę</button>
+    </form>
+
+    <script>
+        function addNewItem() {
+            const itemsContainer = document.getElementById('items');
+            const newItemDiv = document.createElement('div');
+            newItemDiv.classList.add('item');
+
+            const itemCount = itemsContainer.children.length + 1;
+
+            newItemDiv.innerHTML = `
+                <label for="item_description_${itemCount}">Opis produktu:</label>
+                <input type="text" id="item_description_${itemCount}" name="item_description_${itemCount}" required>
+                <br>
+
+                <label for="item_quantity_${itemCount}">Ilość:</label>
+                <input type="number" id="item_quantity_${itemCount}" name="item_quantity_${itemCount}" required>
+                <br>
+
+                <label for="item_price_${itemCount}">Cena jednostkowa:</label>
+                <input type="number" id="item_price_${itemCount}" name="item_price_${itemCount}" step="0.01" required>
+                <br>
+            `;
+
+            itemsContainer.appendChild(newItemDiv);
+        }
+    </script>
+
+</body>
+</html>

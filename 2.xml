@@ -1,0 +1,28 @@
+<!-- Plik XML (invoice_data.xml) -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <company>
+        <name>Przykładowa Firma</name>
+        <address>ul. Przykładowa 123, 00-000 Miasto</address>
+        <phone>123-456-789</phone>
+    </company>
+    <customer>
+        <name>Nazwa Klienta</name>
+        <address>ul. Klientowa 456, 12-345 Inne Miasto</address>
+        <phone>987-654-321</phone>
+    </customer>
+    <items>
+        <item>
+            <description>Produkt 1</description>
+            <quantity>2</quantity>
+            <unit_price>50.00</unit_price>
+        </item>
+        <item>
+            <description>Produkt 2</description>
+            <quantity>1</quantity>
+            <unit_price>30.00</unit_price>
+        </item>
+    </items>
+    <total>130.00</total>
+</invoice>
